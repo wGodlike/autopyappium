@@ -1,12 +1,46 @@
-apkpath: ""
-deviceName: deviceName
-platformName: Android
-platformversion: 6.0
-automationName: Appium
-newCommandTimeout: 600
-appPackage: com.etiantian.pclass
-appActivity: com.etiantian.pclass.page.activities.LoadingActivity
-noSign: True
-unicodeKeyboard: True
-resetKeyboard: True
-deviceReadyTimeout: 30
+# Login
+
+gobtn: "id>com.etiantian.pclass:id/go_bt"
+username: "xpath>com.etiantian.pclass:id/ecc_edit_text"
+
+#gobtn=id>com.etiantian.pclass:id/go_bt
+#usernames=id>com.etiantian.pclass:id/ecc_edit_text
+#password=id>com.etiantian.pclass:id/ecc_edit_text
+#savepwdbox=id>com.etiantian.pclass:id/lag_box_save_pwd
+#loginBtn=id>com.etiantian.pclass:id/lag_btn_login
+#imgphoto=id>com.etiantian.pclass:id/lag_img_photo
+#text=id>com.etiantian.pclass:id/vpt_txt
+#
+## 上课按钮
+#pclassBtn=id>com.etiantian.pclass:id/pclassBtn
+#
+## 选择班级
+#checkBox=id>com.etiantian.pclass:id/checkBox
+#classNameTxt=id>com.etiantian.pclass:id/classNameTxt
+#
+## 选择班级后的确认按钮
+#openBtn=id>com.etiantian.pclass:id/openBtn
+#
+## 正在加载课堂信息
+#vpttxt=id>com.etiantian.pclass:id/vpt_txt
+#vptbr=id>com.etiantian.pclass:id/vpt_br
+#
+## 课卡片名称 以及课件和试卷数量
+#bgView=id>com.etiantian.pclass:id/bgView
+#nameTxt=id>com.etiantian.pclass:id/nameTxt
+#coursewareNumTxt=id>com.etiantian.pclass:id/coursewareNumTxt
+#pagerNumTxt=id>com.etiantian.pclass:id/pagerNumTxt
+#
+## 课详情页 课件列表
+#coursewarebtn=id>com.etiantian.pclass:id/lfci_btn_courseware
+#paperbtn=id>com.etiantian.pclass:id/lfci_btn_pager
+#
+## 试卷名称
+#papername=id>com.etiantian.pclass:id/ligcp_txt_name
+#
+## 推试卷按钮
+#pushpaper=id>com.etiantian.pclass:id/ilpp_btn_push
+## 返回
+#backbtn=id>com.etiantian.pclass:id/lfci_txt_back
+#
+## 推题 H5

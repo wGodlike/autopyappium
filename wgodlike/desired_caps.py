@@ -4,23 +4,29 @@
 # @Desc
 import os
 import json
+import logging
 
+from wgodlike import logger
 from appium import webdriver
 
 
-class Driverinit(object):
-
-    def __init__(self) -> None:
-        super().__init__()
-
-    def init(self):
-        path = os.path.abspath(os.path.dirname(os.getcwd()))
-        with open(path + '/config/desired_caps.json', mode='r') as f:
-            desired_caps = json.loads(f.read())
-        driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)
+def appium_desired(port):
+    # path = os.path.abspath(os.path.dirname(os.getcwd()))
+    with open('config/desired_caps.json', mode='r') as f:
+        desired_caps = json.loads(f.read())
+    logger.Logger()
+    logging.info('start creat driver...')
+    try:
+        driver = webdriver.Remote('http://127.0.0.1:' + port + '/wd/hub', desired_caps)
         driver.implicitly_wait(10)
         return driver
+    except Exception as e:
+        logging.error(e)
 
 
 if __name__ == '__main__':
-    pass
+    with open('config/port.json', mode='r') as f:
+        port_list = json.load(f)
+    for p in port_list:
+        drivers = appium_desired(p)
+
