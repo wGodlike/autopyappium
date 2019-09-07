@@ -35,7 +35,7 @@ MANIFEST
 *.manifest
 *.spec
 
-# Installer logs
+# Installer appium_logs
 pip-log.txt
 pip-delete-this-directory.txt
 
@@ -126,3 +126,5 @@ dmypy.json
 .pyre/
 
 .idea/
+logs/
+config/port.json

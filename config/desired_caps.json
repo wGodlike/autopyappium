@@ -1,0 +1,14 @@
+{
+  "apkpath": "/path/1.apk",
+  "deviceName": "deviceName",
+  "platformName": "Android",
+  "platformversion": 6.0,
+  "automationName": "Appium",
+  "newCommandTimeout": 600,
+  "appPackage": "com.etiantian.pclass",
+  "appActivity": "com.etiantian.pclass.page.activities.LoadingActivity",
+  "noSign": "True",
+  "unicodeKeyboard": "True",
+  "resetKeyboard": "True",
+  "deviceReadyTimeout": 30
+}
