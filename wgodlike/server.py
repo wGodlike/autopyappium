@@ -6,12 +6,16 @@ import json
 import multiprocessing
 import os
 import subprocess
+import logging
+
+from wgodlike import logger
 
 
 class Server(object):
 
     def __init__(self, devices_list) -> None:
         self.devices_list = devices_list
+        logger.Logger()
         super().__init__()
 
     @staticmethod
@@ -40,7 +44,7 @@ class Server(object):
             if self.is_port_used(port_init):
                 port_list.append(port_init)
             port_init += 1
-        with open('../config/port.json', mode='w') as f:
+        with open('config/port.json', mode='w') as f:
             f.write(json.dumps(port_list))
         return port_list
 
@@ -60,7 +64,7 @@ class Server(object):
     @staticmethod
     def appium_start(command, devices_name):
         subprocess.Popen(command, shell=True,
-                         stdout=open('../logs/appium_logs/' + devices_name + '.log', mode='a'),
+                         stdout=open('logs/appium_logs/' + devices_name + '.log', mode='a'),
                          stderr=subprocess.STDOUT)
 
     def start(self):
@@ -70,17 +74,17 @@ class Server(object):
         for i, j in zip(cmds, self.devices_list):
             appium = multiprocessing.Process(target=self.appium_start, args=(i, j))
             appium_process.append(appium)
-        print('开始启动appium服务')
+        logging.info('开始启动appium服务')
         for appium in appium_process:
             appium.start()
         for appium in appium_process:
             appium.join()
 
-        with open('../config/port.json', mode='r') as f:
+        with open('config/port.json', mode='r') as f:
             appium_port_list = json.loads(f.read())
         for i, j in zip(appium_port_list, self.devices_list):
             if self.is_port_used(i):
-                print('设备{0}成功启动appium服务,port={1}'.format(j, i))
+                logging.info('设备{0}成功启动appium服务,port={1}'.format(j, i))
 
 
 if __name__ == '__main__':

@@ -126,5 +126,5 @@ dmypy.json
 .pyre/
 
 .idea/
-logs/
-config/port.json
+wgodlike/logs/
+wgodlike/config/port.json
