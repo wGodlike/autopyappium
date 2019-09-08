@@ -11,3 +11,6 @@ class Base(object):
 
     def find_element(self, *args):
         return self.driver.find_element(*args)
+
+    def find_elements(self, *args):
+        return self.driver.find_elements(*args)

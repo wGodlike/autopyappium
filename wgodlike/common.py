@@ -37,7 +37,7 @@ class Common(Base):
         return toast_element.text
 
     def get_images(self, name):
-        name += '_' + str(int(time.time()))
+        name = time.strftime('%Y%m%d_%H-%M-%S') + '_' + name
         self.driver.save_screenshot('logs/images/' + name + '.png')
         print(name)
 
@@ -68,5 +68,5 @@ class Common(Base):
 if __name__ == '__main__':
     s = 'abc'
     print(s)
-    s += '_' + str(int(time.time()))
+    s = time.strftime('%Y%m%d_%H-%M-%S') + '_' + s
     print(s)
